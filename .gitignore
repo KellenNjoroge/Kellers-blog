@@ -1,3 +1,11 @@
+# my files
+virtual/
+.idea/
+start.sh
+.pytest_cache/
+*.pyc
+instance/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
