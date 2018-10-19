@@ -20,7 +20,7 @@ def login():
             return redirect(request.args.get('next') or url_for('main.home'))
         flash('Invalid username or Password')
 
-    title = "Login | One Minute Pitch "
+    title = "Login | Keller's blog "
     return render_template('auth/login.html', login_form=login_form, title=title)
 
 
@@ -39,7 +39,7 @@ def register():
 
         return redirect(url_for('auth.login'))
 
-    title = "New Account | One Minute Pitch "
+    title = "New Account | Keller's blog "
 
     return render_template('auth/register.html', registration_form=form, title=title)
 
