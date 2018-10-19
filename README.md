@@ -12,17 +12,19 @@ Flask app that has subscription and logging in implimented
     - SQL
 
 ## Description
-An app that allows you to use that one minute of introduction to somebody impressive by giving you the best conversation starters
+A personal blog
 
 It has the following features
 
-    + Allows user to see all the posts that have been made
-    + Allows user to upvote or downvote an app
+    + A writer can create, delete and update blogs
+    + Allows writer to see all the posts that have been made
+    + Allows user to upvote or downvote a post
     + The user can sign up and login
     + The user should receive a welcoming email
-    + They should also view their posts/pitches
-    + Submit a pitch to any category
-    + View different categories
+    + They should also view their posts
+    + The admin can delete inappropriate comments
+    + User should be alerted on the newest subscription
+    + User should see the newest post
 
 
 ## Demo
@@ -51,6 +53,10 @@ This is a list files or directories for pitch app
 ## Known bugs
 
 
+
+## Contact details
+
+Contact me on muthonkel@gmail.com for any more info
 
 ## License
 
