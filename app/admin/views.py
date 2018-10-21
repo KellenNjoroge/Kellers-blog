@@ -1,14 +1,14 @@
 from flask import render_template, redirect, url_for, flash, request
 from ..models import User
 from ..email import mail_message, send_reset_email
-from . import auth
+from . import admin
 from flask_login import login_user, login_required, logout_user, current_user
 from .. import db
 from .forms import RegistrationForm, LoginForm, ResetPassword, NewPassword
 import os
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@admin.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
@@ -21,10 +21,10 @@ def login():
         flash('Invalid username or Password')
 
     title = "Login | Keller's blog "
-    return render_template('auth/login.html', login_form=login_form, title=title)
+    return render_template('admin/login.html', login_form=login_form, title=title)
 
 
-@auth.route('/register', methods=['GET', 'POST'])
+@admin.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
@@ -41,10 +41,10 @@ def register():
 
     title = "New Account | Keller's blog "
 
-    return render_template('auth/register.html', registration_form=form, title=title)
+    return render_template('admin/register.html', registration_form=form, title=title)
 
 
-@auth.route('/logout')
+@admin.route('/logout')
 @login_required
 def logout():
     logout_user()
@@ -52,7 +52,7 @@ def logout():
     return redirect(url_for('main.index'))
 
 
-@auth.route('/reset', methods=['GET', 'POST'])
+@admin.route('/reset', methods=['GET', 'POST'])
 def reset_password():
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
@@ -65,10 +65,10 @@ def reset_password():
             return redirect(url_for('auth.login'))
         elif not user:
             flash('The email does not exist')
-    return render_template('auth/reset.html', title='Reset Password', form=form)
+    return render_template('admin/reset.html', title='Reset Password', form=form)
 
 
-@auth.route('/new_password/<token>', methods=['GET', 'POST'])
+@admin.route('/new_password/<token>', methods=['GET', 'POST'])
 def new_password(token):
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
@@ -81,4 +81,4 @@ def new_password(token):
         db.session.commit()
         flash('Your password has been reset')
         return redirect(url_for('auth.login'))
-    return render_template('auth/change_password.html', title='Reset Password', form=form)
+    return render_template('admin/change_password.html', title='Reset Password', form=form)

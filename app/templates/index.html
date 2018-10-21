@@ -10,7 +10,7 @@
                 {% if current_user.is_authenticated%}
                 <a id="start"  href="{{url_for('main.home')}}">View Pitches</a>
                 {% else %}
-                <a id="stop"  href="{{url_for('auth.login')}}">Sign In</a>
+                <a id="stop"  href="{{url_for('admin.login')}}">Sign In</a>
                 {% endif %}
             </div>
         </div>
