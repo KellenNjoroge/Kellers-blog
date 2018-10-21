@@ -15,5 +15,20 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid text-center subscribe" id="subscribe-form">
+        <h3>Subscribe! </h3>
+        <form action="" method="POST">
+            <div class="row">
+                <div class="col-md-12">
+                    {{subscribe_form.hidden_tag()}}
+                    {{subscribe_form.email}}
+                    <br>
+                    {{subscribe_form.name}}
+                    <br>
+                    {{subscribe_form.subscribe}}
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}
