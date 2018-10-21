@@ -1,0 +1,9 @@
+
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/">Home</a>
+        <a href="{{url_for('admin.register')}}">Register</a>
+        <a href="{{url_for('main.create_blog')}}">New Blog</a>
+        <a href="{{url_for('admin.logout')}}">Sign Out</a>
+        <a href="{{url_for('admin.login')}}">Admin</a>
+        <a id="start"  href="{{url_for('main.view_blogs')}}">blogs</a>
+</nav>

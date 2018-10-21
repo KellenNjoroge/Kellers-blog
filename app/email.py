@@ -16,5 +16,5 @@ def mail_message(subject, template, to, **kwargs):
 def send_reset_email(user):
     token = user.get_reset_password_token()
     mail_message('Reset Password', sender=os.environ.get['MAIL_USERNAME'], recipients=[user.email],
-               text_body=render_template('auth/reset_password.txt', user=user, token=token),
-               html_body=render_template('auth/reset_password.html', user=user, token=token))
+               text_body=render_template('admin/reset_password.txt', user=user, token=token),
+               html_body=render_template('admin/reset_password.html', user=user, token=token))
