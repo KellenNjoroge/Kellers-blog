@@ -15,7 +15,7 @@ from wtforms.validators import Required
 
 class BlogForm(FlaskForm):
     title = StringField('Title', render_kw={"placeholder": "Title"})
-    blog_data = TextAreaField('Type Blog here', )
+    blog_data = TextAreaField('New Blog', )
     photo_url = StringField('Photo URL', render_kw={'placeholder': 'Photo URL'})
     post = SubmitField('Post Blog')
 
