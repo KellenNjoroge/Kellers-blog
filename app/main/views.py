@@ -104,7 +104,7 @@ def view_blogs():
         blogs = all_blogs
         return render_template('all_blogs.html', title=title, all_blogs=blogs)
     elif not all_blogs:
-        blog_message = 'No blogs🤭 posted yet🤭🤭🤭'
+        blog_message = 'No blogs posted yet'
         return render_template('all_blogs.html', title=title, blog_message=blog_message)
 
 
