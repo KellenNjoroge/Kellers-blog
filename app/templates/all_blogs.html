@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+<div class="container-fluid blogs">
+    <div class="row blogs" id="blogs-content">
+        <div class="col-md-12 blogs-title" >
+            <h1>{{blog_message}}</h1>
+            <h1>Blogs</h1>
+        </div>
+        {% for blog in all_blogs %}
+            <div class="col-md-3 blogs-snippet">
+                {% if blog.photo_url %}
+                <a href="{{url_for('main.blog',id=blog.id)}}">
+                    <img src="{{blog.photo_url}}" alt="Loading Image" class="img-responsive">
+                </a>
+                {% else %}
+                <a href="{{url_for('main.blog',id=blog.id)}}">
+                    <img src="{{url_for('static',filename='img/bg-blog.jpeg')}}" alt="blog-image" class="img-responsive">
+                </a>
+                {% endif %}
+                <div class="blog-snippet-content">
+                    <h3><a href="{{url_for('main.blog',id=blog.id)}}">{{blog.title}}</a></h3>
+                    <hr>
+                    <p class="small"> Posted on: {{blog.date_posted.strftime('%Y-%m-%d %H:%M') }} </p>
+                    <p> {{blog.blog_content|truncate(300)}}<a href="{{url_for('main.blog',id=blog.id)}}">View More</a></p>
+                    {% if current_user.is_authenticated%}
+                    <a href="{{url_for('main.delete_blog',id=blog.id)}}">Delete Blog</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

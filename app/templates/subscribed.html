@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center" id="blog-top">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>You have been subscribed!</h1>
+            <h4><a href="{{url_for('main.index')}}">Click here</a> to redirect to homepage</h4>
+        </div>
+    </div>
+</div>
+{% endblock %}

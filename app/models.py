@@ -129,3 +129,9 @@ class Comment(db.Model):
     def get_single_comment(cls, id_blog, id):
         comment = Comment.query.filter_by(blog_id=id_blog, id=id).first()
         return comment
+
+class Photo(db.Model):
+    __tablename__ = 'photos'
+    id = db.Column(db.Integer, primary_key=True)
+    photo_data = db.Column(db.String(255))
+    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))

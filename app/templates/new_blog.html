@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" id="blog-top">
+    <div class="row blog-entries">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <!-- Flash message -->
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+                </div>
+            {% endfor %}
+            <div class="row blog-entries">
+                <div class="col-md-12">
+                    <h3>Create Blog</h3>
+                    <form action="" method="post">
+                        {{blog_form.hidden_tag()}}
+                        <p>{{blog_form.title.label}}</p>
+                        <p>{{blog_form.title}}</p>
+                        {% for error in blog_form.title.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+
+                        <p>{{blog_form.photo_url.label}}</p>
+                        <p>{{blog_form.photo_url}}</p>
+                        {% for error in blog_form.photo_url.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+
+                        <p>{{blog_form.blog_data.label}}</p>
+                        <p>{{blog_form.blog_data}}</p>
+                        {% for error in blog_form.blog_data.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+
+                        <p>{{blog_form.post()}}</p>
+                    </form>
+                    {{simplemde.load}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}
